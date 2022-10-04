@@ -28,6 +28,33 @@ namespace Funciones.Codigo {
 
             Console.WriteLine($"El doble es: { resultDuplicado }");
             Console.WriteLine($"El triple es: { resultTriplicado }");
+
+            bool ObtenerMinMaxPromedio(int[] numeros, out int minimo, out int maximo, out double promedio) {
+                int sum = 0;
+                if (numeros.Length == 0) {
+                    minimo = 0;
+                    maximo = 0;
+                    promedio = 0;
+                    return false;
+                }
+
+                foreach (var num in numeros) {
+                    sum += num;
+                }
+
+                minimo = numeros.Min();
+                maximo = numeros.Max();
+                promedio = sum / numeros.Length;
+
+                return true;
+            }
+
+            var numeros = new int[] { 1, 2, 3, 4, 5 };
+            int minimo, maximo;
+            double promedio;
+
+            ObtenerMinMaxPromedio(numeros, out minimo, out maximo, out promedio);
+            Console.WriteLine($"El valor minimo es: { minimo }, el valor máximo es: { maximo }, el promedio es: { promedio }");
         }
     }
 }
